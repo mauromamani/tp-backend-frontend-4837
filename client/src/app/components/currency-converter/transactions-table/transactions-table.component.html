@@ -1,0 +1,51 @@
+<div class="bg-secondary pb-5">
+  <h1 class="text-white text-center my-4">Historial de transacciones</h1>
+
+  <form class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <label class="form-label">Moneda Origen</label>
+        <input type="text" class="form-control" [(ngModel)]="filter.origen" name="origen" required>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="mb-3">
+        <label class="form-label">Moneda Destino</label>
+        <input type="text" class="form-control" [(ngModel)]="filter.destino" name="destino" required>
+      </div>
+    </div>
+
+    <div class="col-md-3 d-flex align-items-center">
+      <button class="btn btn-danger" (click)="filterTransactions()">Filtrar</button>
+    </div>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-dark table-striped ">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Email</th>
+          <th scope="col">Moneda de Origen</th>
+          <th scope="col">Monto</th>
+          <th scope="col">Moneda de Destino</th>
+          <th scope="col">Tasa de Conversion</th>
+          <th scope="col">RESULTADO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of transactions; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{t.emailCliente}}</td>
+          <td>{{t.monedaOrigen}}</td>
+          <td>${{t.cantidadOrigen}}</td>
+          <td>{{t.monedaDestino}}</td>
+          <td>{{t.tasaConversion}}</td>
+          <td>
+            <div class="alert alert-success text-center m-0 p-1">${{t.cantidadDestino}}</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

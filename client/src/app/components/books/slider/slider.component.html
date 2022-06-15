@@ -1,0 +1,24 @@
+<div class="">
+  <h1 class="text-center">Galería de Libros</h1>
+  <hr />
+  <button class="btn btn-warning mb-2" (click)="newBook()">Agregar Libro</button>
+
+  <div class="card bg-dark mb-3 text-white">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="currentBook.imagen" class="img-fluid">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{currentBook.titulo}}</h5>
+          <p class="card-text">{{currentBook.descripcion}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-success" (click)="prevImg()">Anterior</button>
+    <button class="btn btn-success" (click)="nextImg()">Siguiente</button>
+  </div>
+</div>
